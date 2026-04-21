@@ -1,0 +1,59 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import CTABlock from '../components/CTABlock.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const { frontmatter } = Astro.props;
+const { title, description, pubDate, category, readTime, canonicalUrl } = frontmatter;
+
+let formattedDate = '';
+try {
+  const d = new Date(pubDate);
+  formattedDate = d.toLocaleDateString('en-IN', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+} catch {
+  formattedDate = pubDate;
+}
+---
+<BaseLayout title={title} description={description} canonicalUrl={canonicalUrl} pubDate={pubDate}>
+  <Header />
+  <main style="max-width: 740px; margin: 0 auto; padding: 2rem 1.5rem 4rem;">
+    <div style="margin-bottom: 2rem;">
+      <span style="display:inline-block; background: oklch(0.65 0.19 70 / 0.12); color: oklch(0.45 0.16 55); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.75rem; border-radius: 999px; margin-bottom: 1rem;">
+        {category}
+      </span>
+      <h1 style="font-size: clamp(1.75rem, 4vw, 2.5rem); margin-bottom: 1rem; line-height: 1.15; font-family: Georgia, serif;">{title}</h1>
+      <p style="color: #6b7280; font-size: 0.875rem;">{formattedDate} &middot; {readTime}</p>
+    </div>
+    <hr style="border: none; border-top: 1px solid #e5e7eb; margin-bottom: 2rem;" />
+    <article class="prose">
+      <slot />
+    </article>
+    <div style="margin-top: 3rem;">
+      <CTABlock />
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .prose :global(h2) { font-size: 1.5rem; margin: 2rem 0 1rem; font-family: Georgia, serif; }
+  .prose :global(h3) { font-size: 1.25rem; margin: 1.5rem 0 0.75rem; font-family: Georgia, serif; }
+  .prose :global(p) { margin-bottom: 1.25rem; line-height: 1.85; color: #374151; font-size: 1.0625rem; }
+  .prose :global(ul), .prose :global(ol) { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+  .prose :global(li) { margin-bottom: 0.5rem; line-height: 1.75; color: #374151; font-size: 1.0625rem; }
+  .prose :global(strong) { color: #1a1a2e; font-weight: 600; }
+  .prose :global(blockquote) {
+    border-left: 3px solid oklch(0.65 0.19 70);
+    padding: 0.75rem 1.25rem;
+    background: oklch(0.65 0.19 70 / 0.06);
+    border-radius: 0 0.5rem 0.5rem 0;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #4b5563;
+  }
+  .prose :global(a) { color: oklch(0.65 0.19 70); text-decoration: underline; }
+  .prose :global(hr) { border: none; border-top: 1px solid #e5e7eb; margin: 2rem 0; }
+</style>

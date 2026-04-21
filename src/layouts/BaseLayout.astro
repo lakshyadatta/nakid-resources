@@ -1,0 +1,48 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  pubDate?: string;
+  category?: string;
+}
+const { title, description, canonicalUrl, pubDate } = Astro.props;
+const siteUrl = 'https://resources.nakid.in';
+const fullTitle = `${title} | NAK-ID Resources`;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl ?? siteUrl} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={pubDate ? 'article' : 'website'} />
+  <meta property="og:url" content={canonicalUrl ?? siteUrl} />
+  <meta property="og:site_name" content="NAK-ID Resources" />
+  {pubDate && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": title,
+      "description": description,
+      "datePublished": pubDate,
+      "publisher": {
+        "@type": "Organization",
+        "name": "NAK-ID",
+        "url": "https://nakid.in"
+      }
+    })} />
+  )}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/global.css" />
+</head>
+<body>
+  <slot />
+</body>
+</html>

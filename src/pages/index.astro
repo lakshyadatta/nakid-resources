@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ArticleCard from '../components/ArticleCard.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CTABlock from '../components/CTABlock.astro';
@@ -36,31 +35,42 @@ const categories = ['Legal Education', 'Creator Tools', 'NAK-ID Guides'];
     </div>
   </section>
 
-  <main style="max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 5rem;">
+  <main style="max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem;">
     {categories.map(cat => {
       const catArticles = sorted.filter(a => a.category === cat);
       if (catArticles.length === 0) return null;
       return (
-        <section style="margin-bottom: 4rem;">
-          <h2 style="font-size: 1.25rem; font-weight: 700; color: #1a1a2e; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid oklch(0.65 0.19 70 / 0.2);">
+        <section style="margin-bottom: 3.5rem;">
+          <h2 style="font-size: 1.0625rem; font-weight: 700; color: #1a1a2e; margin-bottom: 1.25rem; padding-bottom: 0.625rem; border-bottom: 2px solid oklch(0.65 0.19 70 / 0.2); text-transform: uppercase; letter-spacing: 0.05em;">
             {cat}
           </h2>
-          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem;">
-            {catArticles.map(article => (
-              <ArticleCard
-                title={article.title}
-                description={article.description}
-                slug={article.slug}
-                category={article.category}
-                readTime={article.readTime}
-                pubDate={article.pubDate}
-              />
+          <div style="display: flex; flex-direction: column;">
+            {catArticles.map((article, i) => (
+              
+                href={`/articles/${article.slug}`}
+                style={`display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 0.875rem 0; border-bottom: 1px solid #f0f0f0; text-decoration: none; color: inherit; ${i === 0 ? 'border-top: 1px solid #f0f0f0;' : ''}`}
+              >
+                <div style="flex: 1; min-width: 0;">
+                  <span style="font-size: 1rem; font-weight: 600; color: #1a1a2e; display: block; margin-bottom: 0.25rem;">
+                    {article.title}
+                  </span>
+                  <span style="font-size: 0.875rem; color: #6b7280; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">
+                    {article.description}
+                  </span>
+                </div>
+                <span style="font-size: 0.8125rem; color: oklch(0.65 0.19 70); font-weight: 500; white-space: nowrap; flex-shrink: 0;">
+                  Read &rarr;
+                </span>
+              </a>
             ))}
           </div>
         </section>
       );
     })}
-    <CTABlock />
+
+    <div style="margin-top: 2rem;">
+      <CTABlock />
+    </div>
   </main>
 
   <Footer />

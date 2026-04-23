@@ -48,7 +48,7 @@ const categories = ['Legal Education', 'Creator Tools', 'NAK-ID Guides'];
             {catArticles.map((article, i) => (
               
                 href={`/articles/${article.slug}`}
-                style={`display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 0.875rem 0; border-bottom: 1px solid #f0f0f0; text-decoration: none; color: inherit; ${i === 0 ? 'border-top: 1px solid #f0f0f0;' : ''}`}
+style={"display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 0.875rem 0; border-bottom: 1px solid #f0f0f0; text-decoration: none; color: inherit;" + (i === 0 ? " border-top: 1px solid #f0f0f0;" : "")}
               >
                 <div style="flex: 1; min-width: 0;">
                   <span style="font-size: 1rem; font-weight: 600; color: #1a1a2e; display: block; margin-bottom: 0.25rem;">

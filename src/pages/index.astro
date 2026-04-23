@@ -12,6 +12,10 @@ const articlesArray = Object.entries(articles).map(([path, mod]: [string, any]) 
 const sorted = articlesArray.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 
 const categories = ['Legal Education', 'Creator Tools', 'NAK-ID Guides'];
+
+function articleUrl(slug: string) {
+  return '/articles/' + slug;
+}
 ---
 <BaseLayout
   title="Resources — Copyright and IP for Indian Creators"
@@ -44,11 +48,11 @@ const categories = ['Legal Education', 'Creator Tools', 'NAK-ID Guides'];
           <h2 style="font-size: 1.0625rem; font-weight: 700; color: #1a1a2e; margin-bottom: 1.25rem; padding-bottom: 0.625rem; border-bottom: 2px solid oklch(0.65 0.19 70 / 0.2); text-transform: uppercase; letter-spacing: 0.05em;">
             {cat}
           </h2>
-          <div style="display: flex; flex-direction: column;">
-            {catArticles.map((article, i) => (
+          <div style="display: flex; flex-direction: column; border-top: 1px solid #f0f0f0;">
+            {catArticles.map(article => (
               
-                href={`/articles/${article.slug}`}
-style={"display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 0.875rem 0; border-bottom: 1px solid #f0f0f0; text-decoration: none; color: inherit;" + (i === 0 ? " border-top: 1px solid #f0f0f0;" : "")}
+                href={articleUrl(article.slug)}
+                style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 0.875rem 0; border-bottom: 1px solid #f0f0f0; text-decoration: none; color: inherit;"
               >
                 <div style="flex: 1; min-width: 0;">
                   <span style="font-size: 1rem; font-weight: 600; color: #1a1a2e; display: block; margin-bottom: 0.25rem;">

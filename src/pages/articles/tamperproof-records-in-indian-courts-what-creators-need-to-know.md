@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/ArticleLayout.astro
 title: "Tamperproof Records in Indian Courts — What Creators Actually Need to Know"
-description: "Permanent records are powerful — but they work because of evidence law, not just technology. Here's the honest legal reality for Indian creators in 2026."
+description: "Permanent digital records are powerful — but the legal reality is more grounded than 'tamperproof means untouchable.' Here's what Indian courts actually require under BSA 2023."
 pubDate: "2026-04-21"
 category: "Legal Education"
 readTime: "5 min read"
@@ -28,7 +28,7 @@ This certificate has two parts. Part A is signed by the person in charge of the 
 
 Here is where it gets interesting for decentralised systems: if no single company or person owns the servers, who signs Part A? This is a question Indian courts are actively working through. The law was written with a traditional IT operator in mind, and the legal community is now building the frameworks to apply it to newer, distributed systems.
 
-This doesn't mean your records are inadmissible — it means the procedural path to court is still being refined. And NAK-ID, as the platform operator, is positioned to provide the Part A certificate for any creator who needs to take their record to court. This is being formalised as a service.
+This doesn't mean your records are inadmissible — it means the procedural path to court is still being refined. For most creators, this procedural detail will never come up. Where it does, the platform that generated the record is the right starting point for any Part A documentation, and NAK-ID is working on exactly this kind of support for creators who need it.
 
 ---
 

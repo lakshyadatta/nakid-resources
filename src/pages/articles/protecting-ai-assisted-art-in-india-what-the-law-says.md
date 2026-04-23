@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/ArticleLayout.astro
 title: "Protecting AI-Assisted Art in India — What the Law Says in 2026"
-description: "Can you copyright work made with AI tools? In India, the answer depends on how much creative control you exercised. Here's what creators need to know."
+description: "AI-assisted art can be copyrighted in India — but only if you can show you drove the creative process. Here's what the law requires and how to build your evidence."
 pubDate: "2026-04-21"
 category: "Legal Education"
 readTime: "5 min read"
@@ -26,7 +26,7 @@ The **Copyright Act 1957** defines an author in **Section 2(d)**. For most works
 
 This phrase is doing a lot of work in 2026. Indian courts and the Copyright Office are examining two things:
 
-**Human authorship:** The law still requires a human creative presence. Pure AI generation — where a machine produces the entire work without your creative direction — is generally considered uncopyrightable under current Indian law. The Delhi High Court is actively examining cases in this space, and the position is evolving.
+**Human authorship:** The law still requires a human creative presence. Pure AI generation — where a machine produces the entire work without your creative direction — is generally considered uncopyrightable under current Indian law. Indian courts and the Copyright Office are still working through how this applies to AI-assisted work, and the position is evolving.
 
 **Creative control:** To claim ownership under **Section 13**, you need to show you exercised genuine creative choices. Your prompts, your edits, your curation, your manual refinements — these are what make the work legally yours.
 
@@ -58,4 +58,3 @@ The practical protection available to you today is documentation. A timestamped 
 **Legal References**
 - Copyright Act, 1957 — Section 2(d) (definition of author), Section 13 (works in which copyright subsists)
 - Department for Promotion of Industry and Internal Trade (DPIIT) — ongoing consultation on AI and copyright
-- Information Technology Act, 2000 — Sections 66C and 66D (identity theft and impersonation)

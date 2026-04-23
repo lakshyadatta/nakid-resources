@@ -33,7 +33,7 @@ As a singer, voice artist, or podcaster, you have specific rights over your reco
 Using a cloned voice to deceive people into thinking it is you — for endorsements, scams, or misinformation — is a criminal offence under these sections.
 
 **Personality Rights — Constitutional Protection**
-Beyond statute, Indian courts have recognised that your name, voice, face, and distinctive persona are protectable elements of your identity. Commercial exploitation of these without your consent is actionable.
+The Supreme Court's 2017 ruling in *Justice K.S. Puttaswamy v. Union of India* established the right to privacy as a fundamental right — and subsequent Indian judgments have built on this to recognise that your name, voice, face, and distinctive persona are protectable elements of your identity. Commercial exploitation of these without your consent is actionable.
 
 ---
 
@@ -60,4 +60,4 @@ When your original voice samples and podcast masters are permanently recorded on
 - Copyright Act, 1957 — Section 38 (Performer's Rights)
 - Information Technology Act, 2000 — Sections 66C and 66D (identity theft, cheating by impersonation)
 - Arijit Singh v. Codible Ventures LLP, Bombay High Court, 2024
-- Constitutional right to privacy — Justice K.S. Puttaswamy v. Union of India, Supreme Court, 2017
+- Justice K.S. Puttaswamy v. Union of India, Supreme Court, 2017 (right to privacy as foundation for personality rights)

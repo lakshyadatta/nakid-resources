@@ -12,10 +12,6 @@ const articlesArray = Object.entries(articles).map(([path, mod]: [string, any]) 
 const sorted = articlesArray.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 
 const categories = ['Legal Education', 'Creator Tools', 'NAK-ID Guides'];
-
-function articleUrl(slug: string) {
-  return '/articles/' + slug;
-}
 ---
 <BaseLayout
   title="Resources — Copyright and IP for Indian Creators"
@@ -24,47 +20,30 @@ function articleUrl(slug: string) {
 >
   <Header />
 
-  <section style="background: linear-gradient(135deg, oklch(0.18 0.06 260) 0%, oklch(0.22 0.08 270) 60%, oklch(0.45 0.16 55) 100%); padding: 4rem 1.5rem; text-align: center;">
-    <div style="max-width: 640px; margin: 0 auto;">
-      <p style="font-family: monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">NAK-ID Resources</p>
-      <h1 style="font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; color: white; line-height: 1.15; margin-bottom: 1rem;">
-        Know Your Rights.<br/>Protect Your Work.
-      </h1>
-      <p style="color: rgba(255,255,255,0.75); font-size: 1.0625rem; line-height: 1.65; margin-bottom: 2rem;">
-        Free guides on copyright law, IP protection, and proof of creation for Indian creators.
-      </p>
-      <a href="https://nakid.in" style="display: inline-flex; align-items: center; gap: 0.5rem; background: oklch(0.65 0.19 70); color: white; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-size: 0.9375rem;">
-        Register Your Work Free &rarr;
-      </a>
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">NAK-ID Resources</p>
+      <h1 class="hero-title">Know Your Rights.<br/>Protect Your Work.</h1>
+      <p class="hero-sub">Free guides on copyright law, IP protection, and proof of creation for Indian creators.</p>
+      <a href="https://nakid.in" class="hero-cta">Register Your Work Free &rarr;</a>
     </div>
   </section>
 
-  <main style="max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem;">
+  <main class="main-content">
     {categories.map(cat => {
       const catArticles = sorted.filter(a => a.category === cat);
       if (catArticles.length === 0) return null;
       return (
-        <section style="margin-bottom: 3.5rem;">
-          <h2 style="font-size: 1.0625rem; font-weight: 700; color: #1a1a2e; margin-bottom: 1.25rem; padding-bottom: 0.625rem; border-bottom: 2px solid oklch(0.65 0.19 70 / 0.2); text-transform: uppercase; letter-spacing: 0.05em;">
-            {cat}
-          </h2>
-          <div style="display: flex; flex-direction: column; border-top: 1px solid #f0f0f0;">
+        <section class="cat-section">
+          <h2 class="cat-heading">{cat}</h2>
+          <div class="article-list">
             {catArticles.map(article => (
-              
-                href={articleUrl(article.slug)}
-                style="display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 0.875rem 0; border-bottom: 1px solid #f0f0f0; text-decoration: none; color: inherit;"
-              >
-                <div style="flex: 1; min-width: 0;">
-                  <span style="font-size: 1rem; font-weight: 600; color: #1a1a2e; display: block; margin-bottom: 0.25rem;">
-                    {article.title}
-                  </span>
-                  <span style="font-size: 0.875rem; color: #6b7280; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;">
-                    {article.description}
-                  </span>
+              <a href={'/articles/' + article.slug} class="article-row">
+                <div class="article-text">
+                  <span class="article-title">{article.title}</span>
+                  <span class="article-desc">{article.description}</span>
                 </div>
-                <span style="font-size: 0.8125rem; color: oklch(0.65 0.19 70); font-weight: 500; white-space: nowrap; flex-shrink: 0;">
-                  Read &rarr;
-                </span>
+                <span class="article-read">Read &rarr;</span>
               </a>
             ))}
           </div>
@@ -72,10 +51,125 @@ function articleUrl(slug: string) {
       );
     })}
 
-    <div style="margin-top: 2rem;">
+    <div class="cta-wrap">
       <CTABlock />
     </div>
   </main>
 
   <Footer />
 </BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, oklch(0.18 0.06 260) 0%, oklch(0.22 0.08 270) 60%, oklch(0.45 0.16 55) 100%);
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+  .hero-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-family: monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    margin-bottom: 2rem;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: oklch(0.65 0.19 70);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 0.9375rem;
+  }
+  .hero-cta:hover {
+    text-decoration: none;
+    opacity: 0.9;
+  }
+  .main-content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+  .cat-section {
+    margin-bottom: 3.5rem;
+  }
+  .cat-heading {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.625rem;
+    border-bottom: 2px solid rgba(180, 100, 20, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .article-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #f0f0f0;
+  }
+  .article-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    text-decoration: none;
+    color: inherit;
+  }
+  .article-row:hover .article-title {
+    color: oklch(0.45 0.16 55);
+  }
+  .article-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .article-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    display: block;
+    margin-bottom: 0.25rem;
+    transition: color 0.15s;
+  }
+  .article-desc {
+    font-size: 0.875rem;
+    color: #6b7280;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .article-read {
+    font-size: 0.8125rem;
+    color: oklch(0.65 0.19 70);
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .cta-wrap {
+    margin-top: 2rem;
+  }
+</style>
